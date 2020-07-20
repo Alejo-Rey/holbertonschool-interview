@@ -16,13 +16,18 @@ def canUnlockAll(boxes):
 
     while True:
         count += 1
+
         for x in range (1, len(boxes)):
+
             if x in keys:
                 keys.extend(boxes[x])
                 keys = list(set(keys))
+
         if count > len(boxes):
             break
+
     for x in range (1, len(boxes)):
         if x not in keys:
             return False
+
     return True
