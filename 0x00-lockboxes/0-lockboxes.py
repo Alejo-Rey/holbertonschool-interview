@@ -1,14 +1,22 @@
 #!/usr/bin/python3
+"""
+Write a method that determines if all the boxes can be opened.
+"""
 
 
 def canUnlockAll(boxes):
     """
     function to search all the key in the boxes
-    return true if there are all the keys
-    return falseif not
+    Args:
+        boxes: A list of lists
+    Returns:
+        true: True if all boxes can be opened
+        false: If can not be open all return False
     """
 
-    if len(boxes) == 0 or len(boxes[0]) == 0:
+    if not boxes:
+        return False
+    if len(boxes[0]) == 0 or len(boxes) == 0 :
         return False
 
     keys = boxes[0].copy()
