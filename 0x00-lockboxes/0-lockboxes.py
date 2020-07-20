@@ -9,19 +9,19 @@ def canUnlockAll(boxes):
     """
 
     if len(boxes) == 0 or len(boxes[0]) == 0:
-        print('bad boxes')
         return False
 
-    keys = boxes[0]
+    keys = boxes[0].copy()
+    count = 0
 
-    for x in range (1, len(boxes)):
-        if x in keys:
-            keys.extend(boxes[x])
-            print(keys)
-    keys = list(set(keys))
-
-    print('keys = ', keys)
-
+    while True:
+        count += 1
+        for x in range (1, len(boxes)):
+            if x in keys:
+                keys.extend(boxes[x])
+                keys = list(set(keys))
+        if count > len(boxes):
+            break
     for x in range (1, len(boxes)):
         if x not in keys:
             return False
